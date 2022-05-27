@@ -8,15 +8,24 @@
 */}}
 
 {{/* Editable variables start here */}}
+
+
 {{ $msgID := XXX }}
+{{/* The message ID of the message you set your reactions to */}}
 
 {{ $embedA := cembed "title" "EMBED TITLE" "description" "EMBED DESCRIPTION" }}
+{{/* The title and description for the embed message that'll be sent in the first ticket type */}}
 {{ $emojiA := " " }}
+{{/* The emoji you want people to click on to open the first ticket type */}}
 {{ $titleA := " " }}
+{{/* The title of the first ticket type */}}
 
 {{ $embedB := cembed "title" "EMBED TITLE" "description" "EMBED DESCRIPTION" }}
+{{/* The title and description for the embed message that'll be sent in the second ticket type */}}
 {{ $emojiB := " " }}
+{{/* The emoji you want people to click on to open the second ticket type */}}
 {{ $titleB := " " }}
+{{/* The title of the second ticket type */}}
 
 {{/* Editable variables end here. DO NOT EDIT BELOW THIS LINE! */}}
 

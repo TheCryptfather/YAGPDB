@@ -1,15 +1,37 @@
-{{ $msgID := 977217324484534363 }}
+{{/*
+    Lost? Check out the readme file for instructions
+    
+    Trigger Type: Reactions
+    Trigger: Added reactions only
+    
+    Made by: https://github.com/TheCryptfather/YAGPDB
+*/}}
 
+{{/* Editable variables start here */}}
+{{ $msgID := XXX }}
 
 {{ $embedA := cembed "title" "EMBED TITLE" "description" "EMBED DESCRIPTION" }}
 {{ $emojiA := " " }}
 {{ $titleA := " " }}
 
+{{ $embedB := cembed "title" "EMBED TITLE" "description" "EMBED DESCRIPTION" }}
+{{ $emojiB := " " }}
+{{ $titleB := " " }}
+
+{{/* Editable variables end here. DO NOT EDIT BELOW THIS LINE! */}}
 
 {{if and (eq .Message.ID $msgID) (eq .Reaction.Emoji.Name $emojiA)}}
     {{$stfu := createTicket .User.ID $titleA}}
     {{sleep 1}}
     {{sendMessage $stfu.ChannelID $embedA}}
     {{addMessageReactions nil .Reaction.MessageID $emojiA}}
+    {{deleteMessageReaction nil .Reaction.MessageID .Reaction.UserID .Reaction.Emoji.Name}}
+{{end}}
+
+{{if and (eq .Message.ID $msgID) (eq .Reaction.Emoji.Name $emojiB)}}
+    {{$stfu := createTicket .User.ID $titleB}}
+    {{sleep 1}}
+    {{sendMessage $stfu.ChannelID $embedB}}
+    {{addMessageReactions nil .Reaction.MessageID $emojiB}}
     {{deleteMessageReaction nil .Reaction.MessageID .Reaction.UserID .Reaction.Emoji.Name}}
 {{end}}

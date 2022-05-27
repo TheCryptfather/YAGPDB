@@ -10,7 +10,9 @@ This CC will automatically reset the reaction counter to 1 so members don't know
 4) Edit things accordingly.
 5) Save, and you're done!
 
-##Adding More Ticket Types
+I'd also considering replacing the default new ticket message in YAGPDB's ticket system with `{{/* */}}` (a blank comment), as this also includes a custom message field for each ticket type. Or just leave the basic instructions on how to add people and close the ticket. Up to you.
+
+## Adding More Ticket Types
 This CC can be expanded right up until you hit YAGPDB's character limit for custom commands, meaning you can have a number of different ticket types. In order to do so, you simply need to duplicate the codes below, and change the A in all instances of **embedA**, **emojiA**, and **titleA** to C, D, E, etc.
 ```{{ $embedA := cembed "title" "EMBED TITLE" "description" "EMBED DESCRIPTION" }}
 {{ $emojiA := " " }}
@@ -23,4 +25,3 @@ and
     {{addMessageReactions nil .Reaction.MessageID $emojiA}}
     {{deleteMessageReaction nil .Reaction.MessageID .Reaction.UserID .Reaction.Emoji.Name}}
 {{end}}```
-F
